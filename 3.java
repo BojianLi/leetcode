@@ -1,5 +1,3 @@
-//out of time don't know why
-
 public class Solution {
     public int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() == 0) return 0;
@@ -14,7 +12,6 @@ public class Solution {
                         maxLen = j - i;
                     }
                     i = index + 1;
-                    System.out.println(i);
                 }
             }
             map.put(s.charAt(j), j);
