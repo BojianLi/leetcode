@@ -31,10 +31,10 @@ public class Solution {
             int a = (n1 == null) ? Integer.MAX_VALUE : n1.val;
             int b = (n2 == null) ? Integer.MAX_VALUE : n2.val;
             if(a < b) {
-                curr.next = new ListNode(a);
+                curr.next = n1;
                 n1 = n1.next;
             } else {
-                curr.next = new ListNode(b);
+                curr.next = n2;
                 n2 = n2.next;
             }
             curr = curr.next;
