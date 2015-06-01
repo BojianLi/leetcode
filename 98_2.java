@@ -16,7 +16,7 @@ public class Solution {
     private boolean traverse(TreeNode node) {
         if(node == null) return true;
         if(!traverse(node.left)) return false;
-        if(pre != null && node.val < pre) return false;
+        if(pre != null && node.val <= pre) return false;
         pre = node.val;
         return traverse(node.right);
     }
