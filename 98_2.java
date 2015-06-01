@@ -13,14 +13,11 @@ public class Solution {
         pre = null;
         traverse(root);
     }
-    private void traverse(TreeNode node) {
-        if(node == null) return;
+    private boolean traverse(TreeNode node) {
+        if(node == null) return true;
         if(!traverse(node.left)) return false;
-        if(pre != null && node.val < pre) {
-            pre = node.val;
-            return false;
-        }
-        traverse(node.right);
-        return true;
+        if(pre != null && node.val < pre) return false;
+        pre = node.val;
+        return traverse(node.right);
     }
 }
