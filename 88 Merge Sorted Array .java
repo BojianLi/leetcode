@@ -5,26 +5,18 @@ public class Solution {
         int j = n - 1;
         while (i >=0 && j >= 0) {
             if (nums1[i] >= nums2[j]) {
-                nums1[index] = nums1[i];
-                index--;
-                i--;
+                nums1[index--] = nums1[i--];
             } else {
-                nums1[index] = nums2[j];
-                index--;
-                j--;
+                nums1[index--] = nums2[j--];
             }
         }
         if (i < 0) {
             while (j >= 0) {
-                nums1[index] = nums2[j];
-                index--;
-                j--;
+                nums1[index--] = nums2[j--];
             }
         } else {
             while (i >= 0) {
-                nums1[index] = nums1[i];
-                index--;
-                i--;
+                nums1[index--] = nums1[i--];
             }
         }
         
