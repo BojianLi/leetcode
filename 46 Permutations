@@ -1,0 +1,21 @@
+public class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        permute(result, new ArrayList<Integer>(), nums);
+        return result;
+    }
+    private void permute(List<List<Integer>> result, List<Integer> array, int[] nums) {
+        if (array.size() == nums.length) {
+            result.add(new ArrayList<Integer>(array));
+            return;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (array.contains(nums[i])) {
+                continue;
+            }
+            array.add(nums[i]);
+            permute(result, array, nums);
+            array.remove(array.size() - 1);
+        }
+    }
+}
