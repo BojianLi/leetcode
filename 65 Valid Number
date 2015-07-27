@@ -1,0 +1,41 @@
+public class Solution {
+    public boolean isNumber(String s) {
+        if (s == null) {
+            return false;
+        }
+        s = s.trim();
+        if (s.length() == 0) {
+            return false;
+        }
+        int i = 0;
+        int end = s.length() - 1;
+        if (s.charAt(0) == '+' || s.charAt(0) == '-') {
+            i++;
+        }
+        boolean num = false, exp = false, dot = false;
+        while (i <= end) {
+            if (Character.isDigit(s.charAt(i))) {
+                num = true;
+            } else if (s.charAt(i) == '.') {
+                if (dot || exp) {
+                    return false;
+                }
+                dot = true;
+            } else if (s.charAt(i) == 'e') {
+                if (exp || !num) {
+                    return false;
+                }
+                exp = true;
+                num = false;
+            } else if (s.charAt(i) == '+' || s.charAt(i) == '-') {
+                if (s.charAt(i - 1) != 'e') {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+            i++;
+        }
+        return num;
+    }
+}
