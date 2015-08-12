@@ -6,18 +6,14 @@ public class Solution {
             strs[i] = Integer.toString(nums[i]);
         }
         Arrays.sort(strs, new StringsComparator());
+        if (strs[0].charAt(0) == '0') {
+            return "0";
+        }
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < n; i++) {
             result.append(strs[i]);
         }
-        int i = 0;
-        while (i < result.length() && result.charAt(i) == '0') {
-            i++;
-        }
-        if (i == n) {
-            return "0";
-        }
-        return result.substring(i);
+        return result.toString();
     }
     static class StringsComparator implements Comparator<String> {
         @Override
